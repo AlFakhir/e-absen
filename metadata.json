@@ -1,0 +1,7 @@
+{
+  "name": "E-Absensi Pintar",
+  "description": "A modern, AI-powered student attendance tracking application featuring QR scanning, master data management, and spreadsheet reporting.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
