@@ -113,7 +113,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ classes, students, on
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleOpenAdd}
-            className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-7 py-3.5 rounded-2xl font-black shadow-xl shadow-slate-900/10 transition-all text-[11px] uppercase tracking-widest"
+            className="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-7 py-3.5 rounded-2xl font-black shadow-xl shadow-teal-600/10 transition-all text-[11px] uppercase tracking-widest"
           >
             <Plus size={18} />
             Tambah Kelas
@@ -139,7 +139,7 @@ const ClassManagement: React.FC<ClassManagementProps> = ({ classes, students, on
                   
                   <div className="flex items-center justify-between mb-8 relative z-10">
                     <div className="flex items-center gap-5">
-                      <div className="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 bg-teal-600 text-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
                         <School size={32} />
                       </div>
                       <div>

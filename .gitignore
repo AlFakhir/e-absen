@@ -22,18 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Mobile
-android/
-ios/
-dist/
-build/
-www/
-
-# Logs
-build_log.txt

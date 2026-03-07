@@ -185,7 +185,7 @@ const TeacherManagement: React.FC<TeacherManagementProps> = ({ schoolInfo, teach
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleOpenAdd}
-            className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-7 py-3.5 rounded-2xl font-black shadow-xl shadow-slate-900/10 transition-all text-[11px] uppercase tracking-widest"
+            className="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-7 py-3.5 rounded-2xl font-black shadow-xl shadow-teal-600/10 transition-all text-[11px] uppercase tracking-widest"
           >
             <UserPlus size={18} />
             Tambah Guru
@@ -477,51 +477,70 @@ const TeacherManagement: React.FC<TeacherManagementProps> = ({ schoolInfo, teach
               
               <div className="p-10 flex flex-col items-center gap-10 bg-slate-50/30">
                 {/* Desain Kartu Guru */}
-                <div ref={cardRef} className="w-[340px] h-[520px] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative flex flex-col">
-                  <div className="h-32 bg-teal-700 p-6 flex items-center gap-4 text-white relative overflow-hidden shrink-0">
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20" />
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2 z-10 shrink-0 shadow-xl">
+                <div ref={cardRef} className="w-[340px] h-[600px] bg-white rounded-[3rem] shadow-2xl border border-slate-200 overflow-hidden relative flex flex-col">
+                  {/* Decorative Background Elements */}
+                  <div className="absolute top-0 left-0 w-full h-48 bg-teal-700 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+                    <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24 blur-2xl" />
+                    <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+                  </div>
+
+                  <div className="h-36 p-8 flex items-center gap-5 text-white relative z-10 shrink-0">
+                    <div className="w-16 h-16 bg-white rounded-[1.25rem] flex items-center justify-center p-2.5 shadow-2xl border border-white/20">
                       <img src={schoolInfo.logo} className="w-full h-full object-contain" alt="Logo" />
                     </div>
-                    <div className="z-10 overflow-hidden">
-                      <h4 className="text-[10px] font-black leading-none uppercase tracking-[0.2em] text-teal-200 mb-1.5">KARTU GURU & STAFF</h4>
-                      <p className="text-xs font-black uppercase tracking-tight leading-tight line-clamp-2">{schoolInfo.name}</p>
+                    <div className="overflow-hidden">
+                      <h4 className="text-[9px] font-black leading-none uppercase tracking-[0.3em] text-teal-200 mb-2">KARTU GURU & STAFF</h4>
+                      <p className="text-[11px] font-black uppercase tracking-tight leading-tight line-clamp-2 text-white/90">{schoolInfo.name}</p>
                     </div>
                   </div>
                   
-                  <div className="flex-1 flex flex-col items-center pt-12 px-8 text-center bg-white">
-                    <div className="w-32 h-32 rounded-[2.5rem] bg-slate-100 border-4 border-white shadow-2xl overflow-hidden mb-6 relative shrink-0">
+                  <div className="flex-1 flex flex-col items-center pt-6 px-8 text-center bg-white relative z-10">
+                    <div className="w-32 h-32 rounded-[2.5rem] bg-slate-50 border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden mb-5 relative shrink-0">
                       {selectedTeacher.photo ? (
                         <img src={selectedTeacher.photo} className="w-full h-full object-cover" alt="Teacher" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-slate-200 text-slate-400">
-                          <User size={48} />
+                        <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300">
+                          <User size={56} />
                         </div>
                       )}
                     </div>
                     
-                    <h2 className="text-2xl font-black text-slate-900 leading-tight mb-1 uppercase tracking-tight">{selectedTeacher.name}</h2>
-                    <p className="text-teal-600 font-black text-[10px] mb-10 uppercase tracking-[0.3em]">{selectedTeacher.subject}</p>
-                    
-                    <div className="w-full space-y-4 mb-6">
-                      <div className="text-center border-b border-slate-100 pb-3">
-                        <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest mb-1">NIK / ID GURU</p>
-                        <p className="text-xl font-black text-slate-900 tracking-[0.2em]">{selectedTeacher.teacherId}</p>
+                    <div className="space-y-1 mb-5">
+                      <h2 className="text-xl font-black text-slate-900 leading-tight uppercase tracking-tight line-clamp-1">{selectedTeacher.name}</h2>
+                      <div className="inline-flex items-center px-4 py-1 bg-teal-50 text-teal-600 rounded-full border border-teal-100/50">
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em]">{selectedTeacher.subject}</span>
                       </div>
+                    </div>
+                    
+                    <div className="w-full py-4 px-6 bg-slate-50 rounded-[1.5rem] border border-slate-100 mb-6">
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">NOMOR INDUK KARYAWAN</p>
+                      <p className="text-xl font-black text-slate-900 tracking-[0.2em] font-mono">{selectedTeacher.teacherId}</p>
                     </div>
 
-                    <div className="mt-auto pb-8 flex flex-col items-center">
-                      <div className="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                        <img 
-                          src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${selectedTeacher.teacherId}`} 
-                          className="w-24 h-24"
-                          alt="QR Code"
-                        />
+                    <div className="mt-auto pb-10 flex flex-col items-center w-full">
+                      <div className="flex items-center justify-between w-full gap-6 px-2">
+                        <div className="p-4 bg-white rounded-[2rem] border border-slate-100 shadow-xl relative group">
+                          <div className="absolute inset-0 bg-teal-500/5 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <img 
+                            src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${selectedTeacher.teacherId}`} 
+                            className="w-20 h-20 relative z-10"
+                            alt="QR Code"
+                          />
+                        </div>
+                        <div className="flex-1 text-left">
+                           <div className="flex items-center gap-2 mb-1.5">
+                            <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                            <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em]">VERIFIED IDENTITY</p>
+                          </div>
+                          <p className="text-[10px] font-black text-slate-900 uppercase tracking-[0.1em] leading-tight mb-1">E-ABSENSI PINTAR</p>
+                          <p className="text-[8px] font-bold text-slate-400 uppercase tracking-[0.1em]">Digital School System v3.0</p>
+                        </div>
                       </div>
-                      <p className="text-[8px] font-black text-slate-300 mt-3 uppercase tracking-[0.4em]">Sistem Absensi Pintar v3.0</p>
                     </div>
                   </div>
-                  <div className="h-3 bg-teal-700 w-full shrink-0" />
+                  {/* Bottom Accent */}
+                  <div className="h-2 bg-teal-700 w-full shrink-0" />
                 </div>
 
                 <div className="flex gap-4 w-full">

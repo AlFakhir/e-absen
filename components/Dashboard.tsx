@@ -180,7 +180,7 @@ const Dashboard: React.FC<DashboardProps> = ({ students, teachers, classes, reco
         className="bg-white rounded-[2.5rem] border border-slate-200/60 shadow-sm overflow-hidden flex flex-col md:flex-row min-h-[350px] group"
       >
         {/* Left Side (Brand) */}
-        <div className="bg-slate-900 p-10 text-white flex flex-col justify-center items-center md:w-[35%] text-center relative overflow-hidden shrink-0">
+        <div className="bg-teal-800 p-10 text-white flex flex-col justify-center items-center md:w-[35%] text-center relative overflow-hidden shrink-0">
           <div className="absolute inset-0 opacity-20 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-brand-500)_0%,_transparent_70%)]" />
           </div>
@@ -294,7 +294,7 @@ const Dashboard: React.FC<DashboardProps> = ({ students, teachers, classes, reco
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard title="Total Siswa" value={students.length} icon={<Users />} color="bg-blue-600" trend="+12% bulan ini" />
+        <StatCard title="Total Siswa" value={students.length} icon={<Users />} color="bg-teal-600" trend="+12% bulan ini" />
         <StatCard title="Total Guru" value={teachers.length} icon={<GraduationCap />} color="bg-teal-600" trend="Aktif mengajar" />
         <StatCard title="Total Kelas" value={classes.length} icon={<School />} color="bg-teal-600" trend="Kapasitas penuh" />
         <StatCard title="Hadir Hari Ini" value={todayPresent} icon={<CheckCircle />} color="bg-teal-600" trend={`${Math.round((todayPresent/students.length)*100) || 0}% Kehadiran`} />

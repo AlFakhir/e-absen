@@ -58,7 +58,7 @@ const UserManagement: React.FC<UserManagementProps> = ({
             {activeSubTab === tab.id && (
               <motion.div
                 layoutId="activeTab"
-                className="absolute inset-0 bg-slate-900 rounded-2xl shadow-lg shadow-slate-900/10"
+                className="absolute inset-0 bg-teal-600 rounded-2xl shadow-lg shadow-teal-600/10"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
