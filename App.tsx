@@ -335,9 +335,18 @@ const App: React.FC = () => {
       <motion.aside 
         initial={false}
         animate={{ width: isSidebarOpen ? 280 : 88 }}
-        className="fixed inset-y-0 left-0 bg-white border-r border-slate-200/60 z-50 hidden lg:flex flex-col shadow-[20px_0_40px_rgba(0,0,0,0.02)]"
+        className="fixed inset-y-0 left-0 bg-white border-r border-slate-200/60 z-50 hidden lg:flex flex-col shadow-[20px_0_40px_rgba(0,0,0,0.02)] overflow-hidden"
       >
-        <div className="p-6 flex items-center gap-4">
+        {/* Watermark Logo */}
+        <div className="absolute -bottom-10 -right-10 opacity-[0.04] pointer-events-none select-none z-0">
+          <img 
+            src={schoolInfo.logo} 
+            className={`transition-all duration-700 grayscale ${isSidebarOpen ? 'w-64 h-64' : 'w-32 h-32'}`} 
+            alt="Watermark" 
+          />
+        </div>
+
+        <div className="p-6 flex items-center gap-4 relative z-10">
           <div className="w-12 h-12 bg-teal-600 rounded-2xl flex items-center justify-center text-white shrink-0 overflow-hidden shadow-lg shadow-teal-600/20">
              <img src={schoolInfo.logo} className="w-full h-full object-cover" alt="Logo" />
           </div>
@@ -356,14 +365,14 @@ const App: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        <nav className="flex-1 px-4 space-y-1.5 mt-6">
+        <nav className="flex-1 px-4 space-y-1.5 mt-6 relative z-10">
           <NavItem icon={<LayoutDashboard size={22} />} label="Dashboard" active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} collapsed={!isSidebarOpen} />
           <NavItem icon={<Database size={22} />} label="Master Data" active={activeTab === 'master'} onClick={() => setActiveTab('master')} collapsed={!isSidebarOpen} />
           <NavItem icon={<QrCode size={22} />} label="Scan QR Absen" active={activeTab === 'scan'} onClick={() => setActiveTab('scan')} collapsed={!isSidebarOpen} />
           <NavItem icon={<FileSpreadsheet size={22} />} label="Laporan" active={activeTab === 'reports'} onClick={() => setActiveTab('reports')} collapsed={!isSidebarOpen} />
         </nav>
 
-        <div className="p-4 mt-auto border-t border-slate-100 space-y-1">
+        <div className="p-4 mt-auto border-t border-slate-100 space-y-1 relative z-10">
           <NavItem 
             icon={<Settings size={22} />} 
             label="Pengaturan" 
@@ -460,7 +469,7 @@ const App: React.FC = () => {
       </main>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden fixed bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur-2xl border border-white/10 px-6 py-4 flex justify-around z-50 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+      <div className="lg:hidden fixed bottom-6 left-6 right-6 bg-teal-900/90 backdrop-blur-2xl border border-white/10 px-6 py-4 flex justify-around z-50 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
         <MobileNavItem icon={<LayoutDashboard />} active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
         <MobileNavItem icon={<Database />} active={activeTab === 'master'} onClick={() => setActiveTab('master')} />
         <MobileNavItem icon={<QrCode />} active={activeTab === 'scan'} onClick={() => setActiveTab('scan')} />

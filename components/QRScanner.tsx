@@ -197,7 +197,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
       {/* Role & Mode Switchers */}
       <div className="flex flex-col gap-6 items-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="flex items-center gap-2 px-4 py-1.5 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-slate-900/10">
+          <div className="flex items-center gap-2 px-4 py-1.5 bg-teal-600 text-white rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-teal-600/10">
             <Zap size={14} className="text-amber-400" />
             Smart Scanner v2.0
           </div>
@@ -208,13 +208,13 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
           <div className="bg-white p-1.5 rounded-2xl border border-slate-200/60 shadow-sm flex gap-1">
             <button 
               onClick={() => { setUserRole('student'); setLastScanned(null); }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${userRole === 'student' ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${userRole === 'student' ? 'bg-teal-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
             >
               <Users size={16} /> Siswa
             </button>
             <button 
               onClick={() => { setUserRole('teacher'); setLastScanned(null); }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${userRole === 'teacher' ? 'bg-slate-900 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${userRole === 'teacher' ? 'bg-teal-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
             >
               <GraduationCap size={16} /> Guru
             </button>
@@ -238,7 +238,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
       </div>
 
       <div className="bg-white rounded-[3rem] border border-slate-200/60 shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden relative">
-        <div className="aspect-square sm:aspect-video bg-slate-950 relative flex items-center justify-center overflow-hidden">
+        <div className="aspect-square sm:aspect-video bg-teal-950 relative flex items-center justify-center overflow-hidden">
           <canvas ref={canvasRef} className="hidden" />
           <video ref={videoRef} className={`w-full h-full object-cover transition-opacity duration-1000 ${isScanning ? 'opacity-100' : 'opacity-0'}`} muted playsInline autoPlay />
 
@@ -262,7 +262,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
                   whileTap={{ scale: 0.95 }}
                   onClick={startCamera}
                   disabled={isInitializing}
-                  className="bg-white text-slate-900 px-12 py-5 rounded-[1.5rem] font-black shadow-2xl transition-all flex items-center gap-3 mx-auto disabled:opacity-50 text-lg uppercase tracking-widest"
+                  className="bg-teal-600 text-white px-12 py-5 rounded-[1.5rem] font-black shadow-2xl transition-all flex items-center gap-3 mx-auto disabled:opacity-50 text-lg uppercase tracking-widest"
                 >
                   {isInitializing ? <Loader2 size={24} className="animate-spin" /> : <Camera size={24} />}
                   {isInitializing ? 'Memulai...' : 'Buka Kamera'}
@@ -391,7 +391,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
         className="bg-white p-8 rounded-[3rem] border border-slate-200/60 flex flex-col xl:flex-row items-center justify-between gap-8 shadow-sm"
       >
         <div className="flex items-center gap-5">
-          <div className="bg-slate-900 p-4 rounded-2xl text-white shadow-xl">
+          <div className="bg-teal-600 p-4 rounded-2xl text-white shadow-xl">
             {userRole === 'student' ? <Users size={28} /> : <GraduationCap size={28} />}
           </div>
           <div className="text-left">
@@ -411,7 +411,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ students, teachers, onMarkAttenda
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="bg-slate-900 text-white px-10 py-4.5 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-xl shadow-slate-900/10"
+            className="bg-teal-600 text-white px-10 py-4.5 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-xl shadow-teal-600/10"
           >
             Proses
           </motion.button>

@@ -1,27 +1,22 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "missing",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "missing",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "missing",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "missing",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "missing",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "missing",
+  apiKey: "AIzaSyC9d2lZDdXYemVG4donrv2zeAlseKrt7_Y",
+  authDomain: "gen-lang-client-0753239052.firebaseapp.com",
+  projectId: "gen-lang-client-0753239052",
+  storageBucket: "gen-lang-client-0753239052.firebasestorage.app",
+  messagingSenderId: "461247787699",
+  appId: "1:461247787699:web:d7d9c06b64d3449dd2f6c6",
+  measurementId: "G-084VHPCY65"
 };
 
 // Initialize Firebase
-let app;
-let db: any = null;
-let auth: any = null;
+const app = initializeApp(firebaseConfig);
+const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+const db = getFirestore(app);
 
-try {
-  app = initializeApp(firebaseConfig);
-  db = getFirestore(app);
-  auth = getAuth(app);
-} catch (error) {
-  console.error("Firebase initialization failed:", error);
-}
-
-export { db, auth };
+export { app, analytics, db };

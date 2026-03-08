@@ -548,7 +548,7 @@ const TeacherManagement: React.FC<TeacherManagementProps> = ({ schoolInfo, teach
                   <button 
                     onClick={handleDownloadCard} 
                     disabled={isDownloading}
-                    className="flex-[1.5] px-8 py-5 bg-slate-900 text-white rounded-2xl font-black flex items-center justify-center gap-3 shadow-2xl shadow-slate-900/20 hover:bg-slate-800 transition-all disabled:opacity-70 uppercase tracking-widest text-[11px]"
+                    className="flex-[1.5] px-8 py-5 bg-teal-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 shadow-2xl shadow-teal-600/20 hover:bg-teal-700 transition-all disabled:opacity-70 uppercase tracking-widest text-[11px]"
                   >
                     {isDownloading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Download size={20} />}
                     Download Kartu
